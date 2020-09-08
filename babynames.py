@@ -42,12 +42,21 @@ def extract_names(filename):
     single list starting with the year string followed by
     the name-rank strings in alphabetical order.
     ['2006', 'Aaliyah 91', 'Aaron 57', 'Abagail 895', ...]
+    <tr align="right"><td>1</td><td>Michael</td><td>Jessica</td>
     """
     with open(filename, 'r') as f:
         content = f.read()
+    baby_names = {}
     year_pattern = re.compile(r'Popularity in (\d{4})')
     year = year_pattern.findall(content)
-    print(year)
+    names_and_ranks_pattern = re.compile(r'<td>(\w+)</td>')
+    names_and_ranks = names_and_ranks_pattern.findall(content)
+    count = 0
+    while count < len(names_and_ranks):
+        baby_names[names_and_ranks[count + 1]] = names_and_ranks[count]
+        baby_names[names_and_ranks[count + 2]] = names_and_ranks[count]
+        count += 3
+    print(baby_names)
     names = []
     # +++your code here+++
     return names
