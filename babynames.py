@@ -45,7 +45,9 @@ def extract_names(filename):
     """
     with open(filename, 'r') as f:
         content = f.read()
-    print(content)
+    year_pattern = re.compile(r'Popularity in (\d{4})')
+    year = year_pattern.findall(content)
+    print(year)
     names = []
     # +++your code here+++
     return names
