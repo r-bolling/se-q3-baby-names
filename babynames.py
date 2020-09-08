@@ -43,6 +43,9 @@ def extract_names(filename):
     the name-rank strings in alphabetical order.
     ['2006', 'Aaliyah 91', 'Aaron 57', 'Abagail 895', ...]
     """
+    with open(filename, 'r') as f:
+        content = f.read()
+    print(content)
     names = []
     # +++your code here+++
     return names
@@ -81,7 +84,7 @@ def main(args):
     # Format the resulting list as a vertical list (separated by newline \n).
     # Use the create_summary flag to decide whether to print the list
     # or to write the list to a summary file (e.g. `baby1990.html.summary`).
-
+    extract_names('baby1990.html')
     # +++your code here+++
 
 
