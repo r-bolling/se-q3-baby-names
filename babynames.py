@@ -111,7 +111,7 @@ def main(args):
             names = extract_names(file)
             with open(file + '.summary', 'w') as f:
                 for name in names:
-                    f.write(name)
+                    f.write(name + '\n')
     else:
         for file in file_list:
             names = extract_names(file)
